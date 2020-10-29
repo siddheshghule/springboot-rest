@@ -87,7 +87,7 @@ Digital Hotel Administration is a backend application, having 6 entities (Admin,
             First command - use digital_hotel;
 
             [Then you can try othe SQL commands, as for creating tables, it will be created automatically when we run 
-        application in IDE.]
+            application in IDE.]
 
 ## Running the Application
 
