@@ -15,7 +15,8 @@ Digital Hotel Administration is a backend application, having 6 entities (Admin,
 2. Download MYSQL for your OS from https://dev.mysql.com/downloads/mysql/  
     2.1 Remeber root user password while installing MYSQL,
     2.2 Start MYSQL server
-	    2.2.1 For MACOS with MYSQL version mysql-8.0.19 , in terminal type -> 'sudo /usr/        local/mysql-8.0.19-macos10.15-x86_64/support-files/mysql.server start'
+
+	    2.2.1 For MACOS with MYSQL version mysql-8.0.19 , in terminal type -> 'sudo /usr/local/mysql-8.0.19-macos10.15-x86_64/support-files/mysql.server start'
 	        If it is taking time to start, then there is an issue, so kill all running mysql, using 'sudo killall mysql', 
 	        then change ownership of mysql folder[mysql-8.0.19-macos10.15-x86_64], using command 'sudo chown -R mysql mysql-8.0.19-macos10.15-x86_64',
             then start the server again.
