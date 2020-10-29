@@ -13,26 +13,26 @@ Digital Hotel Administration is a backend application, having 6 entities (Admin,
 ### Installing
 1. You can use Eclipse IDE, download from https://www.eclipse.org/downloads/, for your OS, and you can opt for Eclipse IDE for Java Developers.
 2. Download MYSQL for your OS from https://dev.mysql.com/downloads/mysql/  
-    > Remeber root user password while installing MYSQL,
-    >Start MYSQL server
-	    2.1 For MACOS with MYSQL version mysql-8.0.19 , in terminal type -> 'sudo /usr/        local/mysql-8.0.19-macos10.15-x86_64/support-files/mysql.server start'
+    2.1 Remeber root user password while installing MYSQL,
+    2.2 Start MYSQL server
+	    2.2.1 For MACOS with MYSQL version mysql-8.0.19 , in terminal type -> 'sudo /usr/        local/mysql-8.0.19-macos10.15-x86_64/support-files/mysql.server start'
 	        If it is taking time to start, then there is an issue, so kill all running mysql, using 'sudo killall mysql', 
 	        then change ownership of mysql folder[mysql-8.0.19-macos10.15-x86_64], using command 'sudo chown -R mysql mysql-8.0.19-macos10.15-x86_64',
             then start the server again.
         [Note: You can use any version.]
-        2.2 Go in bin folder to login into root user of MYSQL, using
+        2.2.2 Go in bin folder to login into root user of MYSQL, using
 	        'sudo /usr/local/mysql-8.0.19-macos10.15-x86_64/bin/mysql -u root -p '(Return)
             password: (system password, as you are suing sudo command)
             Enter password: (enter MYSQL password provided during installation)
-        2.3 Once you are in MYSQL as root user, create database, using
+        2.2.3 Once you are in MYSQL as root user, create database, using
 	        show databases; // To view list of databases
 	        create database digital_hotel; // use digital_hotel as database name as mentioned
-        2.4 Create a user to work with our database
+        2.2.4 Create a user to work with our database
             create user 'user'@'localhost' identified by 'password';  (where username=user, password=password)
             grant all privileges on digital_hotel.* to 'user'@'localhost';
             flush privileges;
             exit [from root user]
-        2.5 login into new user
+        2.2.5 login into new user
             sudo /usr/local/mysql-8.0.19-macos10.15-x86_64/bin/mysql -u user -p (Return)
 	        Enter password:
 
