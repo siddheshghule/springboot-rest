@@ -1,6 +1,12 @@
 # Digital Hotel Administration
-Digital Hotel Administration is a backend application, having 6 entities (Admin, Site, Address, Customer, Beverage and Food), each of them performing data persisting and retrieving operations, using different tools.
-
+Digital Hotel Administration is a backend application, having 6 entities
+Operations:
+Admin : Add, Delete, Update, and get all and specific entry with encryption of password
+Site, Address: Similar operations as Admin, with different fields. Site and Address have 1 to many realtionship, so address fields are saved along with site details.
+Customer: Add, Delete, Update customers details and Get their information.
+Beverage and Food: Add, Update, Delete and Get Information 
+each of them performing data persisting and retrieving operations, using tools like springboot and jpa.
+To get the structure of the data please refer to swagger-ui, by following steps mentioned in ## Running the Application
 
 ## Getting Started
 
@@ -16,7 +22,9 @@ Digital Hotel Administration is a backend application, having 6 entities (Admin,
     2.1 Remeber root user password while installing MYSQL,
     2.2 Start MYSQL server
 
-	2.2.1 For MACOS with MYSQL version mysql-8.0.19 , in terminal type -> 'sudo /usr/local/mysql-8.0.19-macos10.15-x86_64/support-files/mysql.server start'
+	2.2.1 For MACOS with MYSQL version mysql-8.0.19 , in terminal type -> 
+    
+        'sudo /usr/local/mysql-8.0.19-macos10.15-x86_64/support-files/mysql.server start'
 
 	    If it is taking time to start, then there is an issue, so kill all running mysql, using 'sudo killall mysql', 
 	    then change ownership of mysql folder[mysql-8.0.19-macos10.15-x86_64], using command 'sudo chown -R mysql 
@@ -92,7 +100,9 @@ Digital Hotel Administration is a backend application, having 6 entities (Admin,
 ## Running the Application
 
 In IDE, import Existing Maven Projects, select application folder and import.
-If application contains no errors, right click on digital-hotel-administration in Project Exploer, Run As -> Java Application -> DigitalHotelManagementApplication [Ok]
+If application contains no errors, 
+        Right click on digital-hotel-administration in Project Exploer, 
+            Run As -> Java Application -> DigitalHotelManagementApplication [Ok]
 
 The Application is running on 8080 port, so if 8080 is already in use, kill the existing application adn the run again.
 
