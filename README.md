@@ -1,12 +1,20 @@
 # Digital Hotel Administration
 Digital Hotel Administration is a backend application, having 6 entities
+
 Operations:
+
 Admin : Add, Delete, Update, and get all and specific entry with encryption of password
-Site, Address: Similar operations as Admin, with different fields. Site and Address have 1 to many realtionship, so address fields are saved along with site details.
+
+Site, Address: Similar operations as Admin, with different fields. Site and Address have 1 to many realtionship, so 
+address fields are saved along with site details.
+
 Customer: Add, Delete, Update customers details and Get their information.
+
 Beverage and Food: Add, Update, Delete and Get Information 
+
 each of them performing data persisting and retrieving operations, using tools like springboot and jpa.
-To get the structure of the data please refer to swagger-ui, by following steps mentioned in ## Running the Application
+
+To get the structure of the data please refer to swagger-ui, by following steps mentioned in [Running the Application]
 
 ## Getting Started
 
