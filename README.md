@@ -2,9 +2,13 @@
 
 ## Description
 Digital Hotel Administration is a backend application,
+
 • Built modern application with Java, Spring Boot, SQL server.
+
 • Developed Web Services using REST Architecture.
+
 • Clean code and architecture to integrate new features.
+
 • Tools/Plugins: MySQL, Swagger, Actuator, JPA, Security, HATEOAS.
 
 To get the structure of the data please refer to swagger-ui, by following steps mentioned in [Running the Application]
