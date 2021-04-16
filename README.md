@@ -13,6 +13,9 @@ Digital Hotel Administration is a backend application,
 
 To get the structure of the data please refer to swagger-ui, by following steps mentioned in [Running the Application]
 
+### Class Diagram 
+
+
 ### Dependencies used:
     <dependencies>
 		<dependency>
