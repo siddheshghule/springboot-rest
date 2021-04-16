@@ -15,6 +15,7 @@ To get the structure of the data please refer to swagger-ui, by following steps 
 
 ### Class Diagram 
 
+<img width="1268" alt="Screenshot 2021-04-16 at 11 32 38 AM" src="https://user-images.githubusercontent.com/50058377/115004859-8dc29a00-9ea7-11eb-84a8-3ab79b149761.png">
 
 ### Dependencies used:
     <dependencies>
