@@ -73,10 +73,9 @@ To get the structure of the data please refer to swagger-ui, by following steps 
 ### Installing
 1. You can use Eclipse IDE, download from https://www.eclipse.org/downloads/, for your OS, and you can opt for Eclipse IDE for Java Developers.
 2. Download MYSQL for your OS from https://dev.mysql.com/downloads/mysql/  
-    2.1 Remeber root user password while installing MYSQL,
-    2.2 Start MYSQL server
-
-	2.2.1 For MACOS with MYSQL version mysql-8.0.19 , in terminal type -> 
+    2.1 Remember root user password while installing MYSQL,  
+    2.2 Start MYSQL server   
+      2.2.1 For MACOS with MYSQL version mysql-8.0.19 , in terminal type following:
     
         'sudo /usr/local/mysql-8.0.19-macos10.15-x86_64/support-files/mysql.server start'
 
@@ -155,7 +154,7 @@ To get the structure of the data please refer to swagger-ui, by following steps 
 
 In IDE, import Existing Maven Projects, select application folder and import.
 If application contains no errors, 
-        Right click on digital-hotel-administration in Project Exploer, 
+        Right click on digital-hotel-administration in Project Explorer, 
             Run As -> Java Application -> DigitalHotelManagementApplication [Ok]
 
 The Application is running on 8080 port, so if 8080 is already in use, kill the existing application adn the run again.
@@ -165,7 +164,7 @@ http://localhost:8080/digital-hotel-ws/swagger-ui/index.html#/
 
 * [REST API](https://restfulapi.net) - using REST (Representational State Transfer) architecture.
 * [Maven](https://maven.apache.org/) - Dependency Management.
-* [Swagger](https://swagger.io) - For documentaion and test case generation.
+* [Swagger](https://swagger.io) - For documentation and test case generation.
 
 ## Author
 

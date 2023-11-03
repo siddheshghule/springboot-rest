@@ -16,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {
-	Contact contact = new Contact("Siddhesh Ghule","","07ghule@gmail.com");
+	Contact contact = new Contact("Siddhesh Ghule","","siddhesh_ghule@outlook.com");
 	   @Bean
 	    public Docket apiDocket() {
 	        return new Docket(DocumentationType.SWAGGER_2)
