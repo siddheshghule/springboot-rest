@@ -9,6 +9,18 @@ public class AddressDTO {
 	private String type;
 	private SiteDTO siteDetails;
 
+	public AddressDTO() {
+	}
+
+	public AddressDTO(Integer id, String city, String country, String streetName, String postalCode, String type) {
+		this.id = id;
+		this.city = city;
+		this.country = country;
+		this.streetName = streetName;
+		this.postalCode = postalCode;
+		this.type = type;
+	}
+
 	public Integer getId() {
 		return id;
 	}

@@ -62,4 +62,19 @@ public class SiteEntity implements Serializable {
 		this.address = address;
 	}
 
+	public SiteEntity() {
+	}
+
+	public SiteEntity(Integer id, String location, String encryptedPassword, List<AddressEntity> address) {
+		this.id = id;
+		this.location = location;
+		this.encryptedPassword = encryptedPassword;
+		this.address = address;
+	}
+
+	public SiteEntity(Integer id, String location, String encryptedPassword) {
+		this.id = id;
+		this.location = location;
+		this.encryptedPassword = encryptedPassword;
+	}
 }
