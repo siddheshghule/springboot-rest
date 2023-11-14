@@ -19,45 +19,48 @@ import com.digitalhotelmanagement.digitalhotelmanagement.validation.ErrorMessage
 @Service
 public class AddressServiceImplementation implements AddressesService {
 
-	@Autowired
-	AddressRepository addressRepository;
+    @Autowired
+    AddressRepository addressRepository;
 
-	@Autowired
-	SiteRepository siteRepository;
+    @Autowired
+    SiteRepository siteRepository;
 
-	@Override
-	public List<AddressDTO> getAddresses(String location) throws Exception {
+    @Override
+    public List<AddressDTO> getAddresses(String location) throws Exception {
 
-		List<AddressDTO> returnValue = new ArrayList<>();
-		SiteEntity siteEntity = siteRepository.findByLocation(location);
-		ModelMapper modelMapper = new ModelMapper();
-		if (siteEntity == null) {
-			throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
-		}
-		Iterable<AddressEntity> getAddresses = addressRepository.findAllBySiteDetails(siteEntity);
-		for (AddressEntity addressEntity : getAddresses) {
-			returnValue.add(modelMapper.map(addressEntity, AddressDTO.class));
-		}
-		return returnValue;
-	}	
+        List<AddressDTO> returnValue = new ArrayList<>();
+        SiteEntity siteEntity = siteRepository.findByLocation(location);
+        ModelMapper modelMapper = new ModelMapper();
+        if (siteEntity == null) {
+            throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
+        }
+        Iterable<AddressEntity> getAddresses = addressRepository.findAllBySiteDetails(siteEntity);
+        for (AddressEntity addressEntity : getAddresses) {
+            returnValue.add(modelMapper.map(addressEntity, AddressDTO.class));
+        }
+        return returnValue;
+    }
 
-	public AddressDTO getAddressByStreetName(String streetName, String location) throws Exception {
+    public AddressDTO getAddressByStreetName(String streetName, String location) throws Exception {
 
-		AddressDTO returnValue = new AddressDTO();
-		SiteEntity siteEntity = siteRepository.findByLocation(location);
-		AddressEntity addressByStreetName = addressRepository.findByStreetName(streetName);
-		if (siteEntity == null) {
-			throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
-		}
-		Iterable<AddressEntity> getAddresses = addressRepository.findAllBySiteDetails(siteEntity);
-		for (AddressEntity addressEntity : getAddresses) {
-			if (addressByStreetName.equals(addressEntity)) {
-				BeanUtils.copyProperties(addressEntity, returnValue);
-			} else
-				throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
+        AddressDTO returnValue = new AddressDTO();
+        SiteEntity siteEntity = siteRepository.findByLocation(location);
+        AddressEntity addressByStreetName = addressRepository.findByStreetName(streetName);
+        if (siteEntity == null) {
+            throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage() + ", location:" + location);
+        }
+        if (addressByStreetName == null) {
+            throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage() + ", streetName:" + streetName);
+        }
+        Iterable<AddressEntity> getAddresses = addressRepository.findAllBySiteDetails(siteEntity);
+        for (AddressEntity addressEntity : getAddresses) {
+            if (addressByStreetName.equals(addressEntity)) {
+                BeanUtils.copyProperties(addressEntity, returnValue);
+            } else
+                throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
 
-		}
-		return returnValue;
-	}
+        }
+        return returnValue;
+    }
 
 }
