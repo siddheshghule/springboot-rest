@@ -1,5 +1,6 @@
 package com.digitalhotelmanagement.digitalhotelmanagement.serviceTest;
 
+import com.digitalhotelmanagement.digitalhotelmanagement.TestData;
 import com.digitalhotelmanagement.digitalhotelmanagement.entity.AddressEntity;
 import com.digitalhotelmanagement.digitalhotelmanagement.entity.SiteEntity;
 import com.digitalhotelmanagement.digitalhotelmanagement.repository.AddressRepository;
@@ -37,11 +38,11 @@ public class AddressServiceTest {
     @Test
     public void getAddressByStreetName() throws Exception {
 
-        AddressDTO expectedResult = new AddressDTO(1, "city", "country", "streetName", "postalCode", "type");
-        SiteEntity siteEntity = new SiteEntity(1, "location_1", "encryptedPassword");
-        AddressEntity addressEntity = new AddressEntity(
-                1, "city", "country", "streetName", "postalCode", "type", siteEntity);
-        List<AddressEntity> addressEntities = new ArrayList<AddressEntity>();
+        AddressDTO expectedResult = TestData.getAddressDTO();
+        SiteEntity siteEntity = TestData.getSiteEntity();
+        AddressEntity addressEntity = TestData.getAddressEntity();
+        List<AddressEntity> addressEntities = new ArrayList<>();
+
         addressEntities.add(addressEntity);
         siteEntity.setAddress(addressEntities);
 
@@ -54,4 +55,31 @@ public class AddressServiceTest {
         assertThat(expectedResult, is(samePropertyValuesAs(actualResult)));
 
     }
+
+    @Test
+    public void getAddressByStreetNameNotFound() throws Exception {
+
+        SiteEntity siteEntity = TestData.getSiteEntity();
+        AddressEntity addressEntity = TestData.getAddressEntity();
+        List<AddressEntity> addressEntities = new ArrayList<>();
+
+        addressEntities.add(addressEntity);
+        siteEntity.setAddress(addressEntities);
+
+        when(siteRepository.findByLocation("location_1")).thenReturn(siteEntity);
+        when(addressRepository.findByStreetName("streetName")).thenReturn(addressEntity);
+        when(addressRepository.findAllBySiteDetails(siteEntity)).thenReturn(addressEntities);
+
+        try {
+            addressServiceImplementation.getAddressByStreetName("streetName_1", "location_1");
+        } catch (Exception e) {
+            assertThat(e.getMessage(), is("Record does not exist, streetName: streetName_1"));
+        }
+    }
+
+    @Test
+    public void getAddresses() {
+
+    }
+
 }

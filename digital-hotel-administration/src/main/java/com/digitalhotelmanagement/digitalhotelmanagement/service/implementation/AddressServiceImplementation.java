@@ -31,13 +31,16 @@ public class AddressServiceImplementation implements AddressesService {
         List<AddressDTO> returnValue = new ArrayList<>();
         SiteEntity siteEntity = siteRepository.findByLocation(location);
         ModelMapper modelMapper = new ModelMapper();
+
         if (siteEntity == null) {
             throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
         }
         Iterable<AddressEntity> getAddresses = addressRepository.findAllBySiteDetails(siteEntity);
+
         for (AddressEntity addressEntity : getAddresses) {
             returnValue.add(modelMapper.map(addressEntity, AddressDTO.class));
         }
+
         return returnValue;
     }
 
@@ -46,20 +49,23 @@ public class AddressServiceImplementation implements AddressesService {
         AddressDTO returnValue = new AddressDTO();
         SiteEntity siteEntity = siteRepository.findByLocation(location);
         AddressEntity addressByStreetName = addressRepository.findByStreetName(streetName);
+
         if (siteEntity == null) {
-            throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage() + ", location:" + location);
+            throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage() + ", location: " + location);
         }
         if (addressByStreetName == null) {
-            throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage() + ", streetName:" + streetName);
+            throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage() + ", streetName: " + streetName);
         }
+
         Iterable<AddressEntity> getAddresses = addressRepository.findAllBySiteDetails(siteEntity);
         for (AddressEntity addressEntity : getAddresses) {
             if (addressByStreetName.equals(addressEntity)) {
                 BeanUtils.copyProperties(addressEntity, returnValue);
             } else
-                throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
+                throw new Exception(ErrorMessages.NO_RECORD_FOUND.getErrorMessage()+ ", AddressEntity: " +addressByStreetName);
 
         }
+
         return returnValue;
     }
 
