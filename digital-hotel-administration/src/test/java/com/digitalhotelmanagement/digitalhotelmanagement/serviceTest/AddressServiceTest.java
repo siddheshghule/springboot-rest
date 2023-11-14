@@ -57,7 +57,7 @@ public class AddressServiceTest {
     }
 
     @Test
-    public void getAddressByStreetNameNotFound() throws Exception {
+    public void getAddressByStreetNameStreetNameNotFound() {
 
         SiteEntity siteEntity = TestData.getSiteEntity();
         AddressEntity addressEntity = TestData.getAddressEntity();
@@ -74,6 +74,27 @@ public class AddressServiceTest {
             addressServiceImplementation.getAddressByStreetName("streetName_1", "location_1");
         } catch (Exception e) {
             assertThat(e.getMessage(), is("Record does not exist, streetName: streetName_1"));
+        }
+    }
+
+    @Test
+    public void getAddressByStreetNameLocationNotFound() {
+
+        SiteEntity siteEntity = TestData.getSiteEntity();
+        AddressEntity addressEntity = TestData.getAddressEntity();
+        List<AddressEntity> addressEntities = new ArrayList<>();
+
+        addressEntities.add(addressEntity);
+        siteEntity.setAddress(addressEntities);
+
+        when(siteRepository.findByLocation("location_1")).thenReturn(siteEntity);
+        when(addressRepository.findByStreetName("streetName")).thenReturn(addressEntity);
+        when(addressRepository.findAllBySiteDetails(siteEntity)).thenReturn(addressEntities);
+
+        try {
+            addressServiceImplementation.getAddressByStreetName("streetName_1", "location_2");
+        } catch (Exception e) {
+            assertThat(e.getMessage(), is("Record does not exist, location: location_2"));
         }
     }
 
